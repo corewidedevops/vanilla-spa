@@ -1,0 +1,20 @@
+---
+name: pipeline
+on: 
+  push:
+   branches: [ runner-test ]
+
+jobs:
+  deployment:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: 'Deploy NGINX'
+      uses: 'deliverybot/helm@v1'
+      with:
+        release: 'nginx'
+        namespace: 'default'
+        chart: 'bitnami/nginx'
+        repository: 'https://charts.bitnami.com/bitnami'
+        # token: '${{ github.token }}'
