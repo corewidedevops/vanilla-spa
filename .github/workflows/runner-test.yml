@@ -8,13 +8,10 @@ jobs:
   deployment:
     runs-on: 'ubuntu-latest'
     steps:
-    - uses: actions/checkout@v1
+     - uses: actions/checkout@v3
 
-    - name: 'Deploy NGINX'
-      uses: 'deliverybot/helm@v1'
-      with:
-        release: 'nginx'
-        namespace: 'default'
-        chart: 'bitnami/nginx'
-        repository: 'https://charts.bitnami.com/bitnami'
-        # token: '${{ github.token }}'
+     - name: Deploy
+       uses: WyriHaximus/github-action-helm3@v3
+       with:
+         exec: helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm search repo nginx && helm install nginx bitnami/nginx
+         kubeconfig: '${{ secrets.KUBECONFIG }}'
