@@ -13,5 +13,5 @@ jobs:
      - name: Deploy
        uses: WyriHaximus/github-action-helm3@v3
        with:
-         exec: helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm search repo nginx && helm install nginx bitnami/nginx
+         exec: helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm search repo nginx && helm install nginx bitnami/nginx && kubectl get ns 
          kubeconfig: '${{ secrets.KUBECONFIG }}'
