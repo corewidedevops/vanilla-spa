@@ -1,19 +1,21 @@
 ---
 name: pipeline
-on: 
+on:
   push:
    branches: [ runner-test ]
 
 jobs:
   GitHub-Actions-Self-Hosted-Runners:
-    runs-on: max-test-max-test-runner
+    runs-on: mx-ts-vanilla-spa
     steps:
     - uses: azure/setup-kubectl@v4
       id: install
-      
-    - run: | 
+
+    - run: |
         echo "🎉 This job uses runner scale set runners!"
         kubectl get pods -n github-runner-controller
+
+    - run: helm repo add bitnami https://charts.bitnami.com/bitnami && helm install nginx bitnami/nginx
 
 # jobs:
 #   deployment:
