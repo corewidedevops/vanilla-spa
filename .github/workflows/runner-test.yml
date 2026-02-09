@@ -17,7 +17,7 @@ jobs:
         echo "🎉 This job uses runner scale set runners!"
         kubectl get pods -n github-runner-controller
 
-    - run: kubectl apply -f $GITHUB_WORKSPACE/2048.yml
+    - run: kubectl apply -f $GITHUB_WORKSPACE/2048.yml -n default
 
 # jobs:
 #   deployment:
