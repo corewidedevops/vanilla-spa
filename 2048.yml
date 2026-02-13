@@ -16,7 +16,7 @@ spec:
         app: game-2048
     spec:
       containers:
-        - image: alexwhen/docker-2048:latest # Test
+        - image: alexwhen/docker-2048:latest # New-Test
           name: game-2048
           ports:
             - name: web
