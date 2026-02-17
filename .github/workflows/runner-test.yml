@@ -6,7 +6,7 @@ on:
 
 jobs:
   GitHub-Actions-Self-Hosted-Runners:
-    runs-on: vanilla-runner-new # mx-ts-vanilla-spa
+    runs-on: max-run-2-vanilla-spa-2 # mx-ts-vanilla-spa
     steps:
     - uses: actions/checkout@v3
 
